@@ -12,10 +12,10 @@
             text-transform: uppercase;
             font-weight: bolder;
             margin-bottom: 20px;
-                        padding: 10px;
+            padding: 10px;
         }
         .inputs{
-            width: 70%;
+            width: 90%;
             margin: 0 auto;
             display: flex;
             justify-content: space-around;
@@ -37,7 +37,7 @@
 </head>
 <body>
     <header class="bg-primary">
-        Compound Betting
+        Compound Betting Calculator
     </header>
     <main>
         <div class="row">
@@ -67,7 +67,9 @@
         <div class="">
             <div class="row">
                 <div class="col-lg-10 col-lg-offset-1">
-                    <button class="btn btn-primary calculate pull-right">Calculate</button>
+                    <div class="col-lg-4 pull-right">
+                        <button class="btn btn-primary calculate pull-right">Calculate</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -76,7 +78,7 @@
         <br>
 
         <div class="table-responsive col-lg-10 col-lg-offset-1">
-            <table class="table">
+            <table class="table" id="example2">
                 <thead>
                     <tr class="btn-primary">
                         <th>Day</th>
@@ -86,21 +88,29 @@
                     </tr>
 
                 </thead>
-                <tbody>
-
+                <tbody class="records">
 
                 </tbody>
             </table>
         </div>
 
     </main>
+    <footer class="bg-primary">
+        <div>
+            <a>Twitter</a>
+            <a>LinkedIn</a>
+            <a>Github</a>
+        </div>
+    </footer>
 </body>
 <!-- Latest compiled and minified JavaScript -->
-	
-  
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
+
+
+<!-- <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script> -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.4/js/dataTables.bootstrap.min.js"></script>
 <script>
     'use strict';
 
@@ -109,6 +119,9 @@
         odds: 0,
         initial_stake: 0
     };
+
+    // const table = ("#mytable").DataTable();
+    const table = $('#example2').DataTable();
 
     let resultArr = [];
 
@@ -124,15 +137,36 @@
 
     calculate.on('click',function(){
         resultArr = [];
-        let gain = obj.initial_stake;
+        let stake = obj.initial_stake;
         for(let i = 1; i <= obj.days; i++){
-            gain = gain * obj.odds;
-            resultArr.push(gain)
+            const gain  = stake * obj.odds;
+            const ans = {
+                stake: stake,
+                gain: gain,
+                profit: gain - obj.initial_stake,
+            };
+            stake = gain;
+            resultArr.push(ans)
         }
+
+        add_new_row_to_table(resultArr);
+
         console.log(obj);
         console.log(resultArr);
-
     });
+
+    function add_new_row_to_table(arr) {
+        table.clear().draw();
+        arr.forEach(function(value, key) {
+            table.row.add([
+                `${key + 1}`,
+                `${value.stake}`,
+                `${value.gain}`,
+                `${value.profit}`,
+            ]).draw();
+    });
+}
+
 
     
 
