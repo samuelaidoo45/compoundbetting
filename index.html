@@ -66,8 +66,12 @@
 
         <div class="">
             <div class="row">
+               
                 <div class="col-lg-10 col-lg-offset-1">
-                    <div class="col-lg-4 pull-right">
+                    <div class="col-lg-4 pull-left" style="color:crimson">
+                        NB: Restart app if not working.
+                    </div>
+                    <div class="col-lg-4 pull-right" >
                         <button class="btn btn-primary calculate pull-right">Calculate</button>
                     </div>
                 </div>
@@ -143,7 +147,6 @@
         initial_stake: 0
     };
 
-    // const table = ("#mytable").DataTable();
     const table = $('#example2').DataTable();
 
     let resultArr = [];
@@ -151,8 +154,9 @@
     const compoundCalInput = $(".compound-cal-inputs");
     const calculate = $(".calculate");
 
+    // compoundCalInput.val('');
 
-    compoundCalInput.on('change',function(){
+    compoundCalInput.on('blur',function(){
         const id = $(this).attr('id');
         const value = $(this).val();
         obj[id] = value;
@@ -162,9 +166,8 @@
         resultArr = [];
         let stake = obj.initial_stake;
         for(let i = 1; i <= obj.days; i++){
-            const gain  = stake * obj.odds;
+            const gain  = (stake) * obj.odds;
             let a = Number(stake).toFixed(2);
-            console.log(a);
             const ans = {
                 stake: Number(stake).toFixed(2),
                 gain: Number(gain).toFixed(2),
@@ -191,11 +194,6 @@
             ]).draw();
     });
 }
-
-
-    
-
-
 
 </script>
 </html>
