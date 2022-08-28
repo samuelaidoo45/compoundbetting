@@ -84,7 +84,7 @@
                         <th>Day</th>
                         <th>Stake</th>
                         <th>Gain</th>
-                        <th>Profit</th>
+                        <th>Profit(On Initial Stake)</th>
                     </tr>
 
                 </thead>
@@ -140,10 +140,12 @@
         let stake = obj.initial_stake;
         for(let i = 1; i <= obj.days; i++){
             const gain  = stake * obj.odds;
+            let a = Number(stake).toFixed(2);
+            console.log(a);
             const ans = {
-                stake: stake,
-                gain: gain,
-                profit: gain - obj.initial_stake,
+                stake: Number(stake).toFixed(2),
+                gain: Number(gain).toFixed(2),
+                profit: Number(gain - obj.initial_stake).toFixed(2),
             };
             stake = gain;
             resultArr.push(ans)
