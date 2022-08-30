@@ -26,6 +26,24 @@
             display: flex;
             justify-content: flex-end;
         }
+
+        .nav_container{
+            display: flex;
+            /* background-color: aqua; */
+            justify-content:space-between;
+            width: 80%;
+            margin: 0 auto;
+
+        }
+
+        .betting_tip{
+            justify-content:space-between;
+        }
+
+        .betting_tip a{
+            text-decoration: none;
+        }
+
     </style>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
@@ -37,7 +55,16 @@
 </head>
 <body>
     <header class="bg-primary">
-        Compound Betting Calculator
+        <div class="nav_container">
+            <div class="heading">
+                Compound Betting Calculator
+            </div>
+    
+            <div class="betting_tip">
+                <!-- <a href="" style="color:white">Betting Tip</a> -->
+                <a href="https://samuelaidoo45.github.io/compoundbetting/livematch.html" target="_blank" style="color:white">Live Match</a>
+            </div>
+        </div>
     </header>
     <main>
         <div class="row">
