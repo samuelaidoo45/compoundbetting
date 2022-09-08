@@ -171,17 +171,16 @@
                                 <tbody class="records">
                                     <tr>
                                         <td>1</td>
-                                        <td>Barcelona vs FC Viktoria Plzen</td>
+                                        <td>PSV Eindhoven vs Bodoe/Glimt</td>
                                         <td>Over 1.5</td>
-                                        <td>1.08</td>
+                                        <td>1.12</td>
                                     </tr>
                                      <tr>
                                         <td>2</td>
-                                        <td>Inter Milan vs Bayern Munich</td>
+                                        <td>Villarreal vs KKS Lech Pozan</td>
                                         <td>Over 1.5</td>
-                                        <td>1.14</td>
+                                        <td>1.12</td>
                                     </tr>
-                                   
                                 </tbody>
                             </table>
                         </div>
@@ -212,7 +211,7 @@
                 </div>
                 <div class="modal-body">
 
-                    <table class="table" id="example2">
+                    <table class="table" id="tipHistory">
                         <thead>
                             <tr class="btn-primary">
                                 <th>Day</th>
@@ -308,6 +307,19 @@
                                         <td>Over 0.5</td>
                                         <td ><label class="label label-success">WON</label></td>  
                                     </tr>
+                            
+                                     <tr>
+                                         <td><label>8</label></td>
+                                        <td>Barcelona vs FC Viktoria Plzen</td>
+                                        <td>Over 1.5</td>
+                                        <td ><label class="label label-success">WON</label></td>  
+                                    </tr>
+                                     <tr>
+                                         <td><label>8</label></td>
+                                        <td>Inter Milan vs Bayern Munich</td>
+                                        <td>Over 1.5</td>
+                                        <td ><label class="label label-success">WON</label></td>  
+                                    </tr>
 
                         </tbody>
                     </table>
@@ -373,7 +385,9 @@
     };
 
     const table = $('#example2').DataTable();
-
+    
+    const tipHistoryTable = $("#tipHistory").DataTable();
+    
     let resultArr = [];
 
     const compoundCalInput = $(".compound-cal-inputs");
