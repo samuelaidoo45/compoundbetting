@@ -75,20 +75,24 @@
             font-size: 24px;
         }
 
-        html, body {
+        
+/* Add this CSS to your existing styles */
+
+html, body {
     height: 100%;
     margin: 0;
     padding: 0;
 }
 
-.wrapper {
-    min-height: 100%;
+body {
     display: flex;
     flex-direction: column;
 }
 
-main {
+.wrapper {
     flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 footer {
@@ -96,9 +100,13 @@ footer {
     color: white;
     text-align: center;
     padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
 
-  
+	    
+	  
 
 
     </style>
